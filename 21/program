@@ -1,0 +1,32 @@
+#ip 2
+0:  seti 123 0 4      # e = 123
+1:  bani 4 456 4      # e &= 456
+2:  eqri 4 72 4       # if e == 72:
+3:  addr 4 2 2        # goto 5
+4:  seti 0 0 2        # else: goto 1
+5:  seti 0 7 4        # e = 0
+6:  bori 4 65536 3    # d = e | 65536
+7:  seti 10283511 1 4 # e = 10283511
+8:  bani 3 255 1      # b = d & 255
+9:  addr 4 1 4        # e += b
+10: bani 4 16777215 4 # e &= 16777215
+11: muli 4 65899 4    # e *= 65899
+12: bani 4 16777215 4 # e &= 16777215
+13: gtir 256 3 1      # if 256 > d:
+14: addr 1 2 2        # goto 16
+15: addi 2 1 2        # else: goto 17
+16: seti 27 8 2       # goto 28
+17: seti 0 1 1        # b = 0
+18: addi 1 1 5        # f = b + 1
+19: muli 5 256 5      # f *= 256
+20: gtrr 5 3 5        # if f > d:
+21: addr 5 2 2        # goto 23
+22: addi 2 1 2        # else: goto 24
+23: seti 25 3 2       # goto 26
+24: addi 1 1 1        # b += 1
+25: seti 17 0 2       # goto 18
+26: setr 1 4 3        # d = b
+27: seti 7 6 2        # goto 8
+28: eqrr 4 0 1        # if e == a:
+29: addr 1 2 2        # end
+30: seti 5 2 2        # goto 6
